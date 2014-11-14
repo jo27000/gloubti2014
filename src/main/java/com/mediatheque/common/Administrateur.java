@@ -6,6 +6,7 @@
 package com.mediatheque.common;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
@@ -16,5 +17,12 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue("Administrateur")
 public class Administrateur extends Adherent implements Serializable {
+
+    public Administrateur(String nom, String prenom, String mail, String tel, Date dateNaissance, String login, String password) {
+        super(nom, prenom, mail, tel, dateNaissance, login, password);
+    }
+
+    public Administrateur() {
+    }
 
 }

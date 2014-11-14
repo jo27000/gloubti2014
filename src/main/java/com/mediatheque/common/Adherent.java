@@ -43,6 +43,16 @@ public class Adherent implements Serializable {
     private String login;
     private String password;
 
+    public Adherent(String nom, String prenom, String mail, String tel, Date dateNaissance, String login, String password) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mail = mail;
+        this.tel = tel;
+        this.dateNaissance = dateNaissance;
+        this.login = login;
+        this.password = password;
+    }
+
     public Adherent() {
     }
 

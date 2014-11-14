@@ -14,6 +14,13 @@ public class Musique extends Media implements Serializable {
     @Enumerated(EnumType.STRING)
     private GenreMusique genreMusique;
 
+    public Musique() {
+    }
+
+    public Musique(String titre, String auteur, String resume, Byte[] pochette, int anneeParution) {
+        super(titre, auteur, resume, pochette, anneeParution);
+    }
+
     public GenreMusique getGenreMusique() {
         return genreMusique;
     }

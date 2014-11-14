@@ -15,6 +15,13 @@ public class Livre extends Media implements Serializable {
     @Enumerated(EnumType.STRING)
     private GenreLivre genreLivre;
 
+    public Livre() {
+    }
+
+    public Livre(String titre, String auteur, String resume, Byte[] pochette, int anneeParution) {
+        super(titre, auteur, resume, pochette, anneeParution);
+    }
+
     public String getEditeur() {
         return editeur;
     }

@@ -35,6 +35,12 @@ public class Emprunt implements Serializable {
     public Emprunt() {
     }
 
+    public Emprunt(Date dateEmprunt, Adherent adherent, Media media) {
+        this.dateEmprunt = dateEmprunt;
+        this.adherent = adherent;
+        this.media = media;
+    }
+
     public long getId() {
         return id;
     }

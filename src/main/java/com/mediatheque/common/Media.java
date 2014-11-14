@@ -46,6 +46,14 @@ public class Media implements Serializable {
         return id;
     }
 
+    public Media(String titre, String auteur, String resume, Byte[] pochette, int anneeParution) {
+        this.titre = titre;
+        this.auteur = auteur;
+        this.resume = resume;
+        this.pochette = pochette;
+        this.anneeParution = anneeParution;
+    }
+
     public void setId(long id) {
         this.id = id;
     }

@@ -26,6 +26,11 @@ public class Cotisation implements Serializable {
     public Cotisation() {
     }
 
+    public Cotisation(Date dateCotisation, Long valeur) {
+        this.dateCotisation = dateCotisation;
+        this.valeur = valeur;
+    }
+
     public Long getId() {
         return id;
     }

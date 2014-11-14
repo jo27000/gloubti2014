@@ -11,6 +11,13 @@ import javax.persistence.Enumerated;
 @DiscriminatorValue("Video")
 public class Video extends Media implements Serializable {
 
+    public Video() {
+    }
+
+    public Video(String titre, String auteur, String resume, Byte[] pochette, int anneeParution) {
+        super(titre, auteur, resume, pochette, anneeParution);
+    }
+
     @Enumerated(EnumType.STRING)
     private GenreVideo genreVideo;
     private int limiteAge;
