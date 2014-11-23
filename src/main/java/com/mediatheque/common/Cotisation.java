@@ -6,13 +6,12 @@ import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author saturne
- */
+@XmlRootElement
 @Entity
 public class Cotisation implements Serializable {
 
@@ -22,13 +21,16 @@ public class Cotisation implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dateCotisation;
     private Long valeur;
+    @OneToOne
+    private Adherent adherent;
 
     public Cotisation() {
     }
 
-    public Cotisation(Date dateCotisation, Long valeur) {
+    public Cotisation(Date dateCotisation, Long valeur, Adherent adherent) {
         this.dateCotisation = dateCotisation;
         this.valeur = valeur;
+        this.adherent = adherent;
     }
 
     public Long getId() {
@@ -37,6 +39,14 @@ public class Cotisation implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Adherent getAdherent() {
+        return adherent;
+    }
+
+    public void setAdherent(Adherent adherent) {
+        this.adherent = adherent;
     }
 
     public Date getDateCotisation() {
@@ -58,9 +68,10 @@ public class Cotisation implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.id);
-        hash = 89 * hash + Objects.hashCode(this.dateCotisation);
-        hash = 89 * hash + (int) (this.valeur ^ (this.valeur >>> 32));
+        hash = 53 * hash + Objects.hashCode(this.id);
+        hash = 53 * hash + Objects.hashCode(this.dateCotisation);
+        hash = 53 * hash + Objects.hashCode(this.valeur);
+        hash = 53 * hash + Objects.hashCode(this.adherent);
         return hash;
     }
 
@@ -73,18 +84,19 @@ public class Cotisation implements Serializable {
             return false;
         }
         final Cotisation other = (Cotisation) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
         if (!Objects.equals(this.dateCotisation, other.dateCotisation)) {
             return false;
         }
-        if (this.valeur != other.valeur) {
+        if (!Objects.equals(this.valeur, other.valeur)) {
+            return false;
+        }
+        if (!Objects.equals(this.adherent, other.adherent)) {
             return false;
         }
         return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Cotisation{" + "id=" + id + ", dateCotisation=" + dateCotisation + ", valeur=" + valeur + '}';
     }
 
 }

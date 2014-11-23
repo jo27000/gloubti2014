@@ -14,11 +14,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author Samuel
- */
+@XmlRootElement
 @Entity
 public class Emprunt implements Serializable {
 
@@ -41,7 +39,7 @@ public class Emprunt implements Serializable {
         this.media = media;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -75,11 +73,11 @@ public class Emprunt implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 73 * hash + Objects.hashCode(this.id);
-        hash = 73 * hash + Objects.hashCode(this.dateEmprunt);
-        hash = 73 * hash + Objects.hashCode(this.adherent);
-        hash = 73 * hash + Objects.hashCode(this.media);
+        int hash = 5;
+        hash = 17 * hash + Objects.hashCode(this.id);
+        hash = 17 * hash + Objects.hashCode(this.dateEmprunt);
+        hash = 17 * hash + Objects.hashCode(this.adherent);
+        hash = 17 * hash + Objects.hashCode(this.media);
         return hash;
     }
 
@@ -97,9 +95,19 @@ public class Emprunt implements Serializable {
             return false;
         }
         final Emprunt other = (Emprunt) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
         if (!Objects.equals(this.dateEmprunt, other.dateEmprunt)) {
+            return false;
+        }
+        if (!Objects.equals(this.adherent, other.adherent)) {
+            return false;
+        }
+        if (!Objects.equals(this.media, other.media)) {
             return false;
         }
         return true;
     }
+
 }

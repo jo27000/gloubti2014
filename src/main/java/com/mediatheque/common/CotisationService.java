@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface CotisationService {
 
-    public Cotisation add(Cotisation cotisation);
+    public int add(Cotisation cotisation);
 
     public int remove(Cotisation cotisation);
 
@@ -13,7 +13,7 @@ public interface CotisationService {
 
     public List<Cotisation> getAll(int debut, int nbParPage, SortDirection ordre);
 
-    public Cotisation getById(long id);
+    public Cotisation getById(Long id);
 
     public List<Cotisation> getByDate(Date date, int debut, int nbParPage, SortDirection ordre);
 

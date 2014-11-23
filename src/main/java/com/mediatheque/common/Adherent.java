@@ -19,14 +19,12 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author saturne
- */
+@XmlRootElement
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "discriminator", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorColumn(name = "DISCRIMINATOR", discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue("Adherent")
 public class Adherent implements Serializable {
 
@@ -43,6 +41,9 @@ public class Adherent implements Serializable {
     private String login;
     private String password;
 
+    public Adherent() {
+    }
+
     public Adherent(String nom, String prenom, String mail, String tel, Date dateNaissance, String login, String password) {
         this.nom = nom;
         this.prenom = prenom;
@@ -51,9 +52,6 @@ public class Adherent implements Serializable {
         this.dateNaissance = dateNaissance;
         this.login = login;
         this.password = password;
-    }
-
-    public Adherent() {
     }
 
     public Long getId() {

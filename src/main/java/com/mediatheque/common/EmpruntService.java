@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mediatheque.common;
 
 import java.util.Date;
@@ -14,7 +9,7 @@ import java.util.List;
  */
 public interface EmpruntService {
 
-    public Emprunt add(Emprunt emprunt);
+    public int add(Emprunt emprunt);
 
     public int remove(Emprunt emprunt);
 
@@ -22,7 +17,7 @@ public interface EmpruntService {
 
     public List<Emprunt> getAll(int debut, int nbParPage, SortDirection ordre);
 
-    public Emprunt getById(long id);
+    public Emprunt getById(Long id);
 
     public List<Emprunt> getByDate(Date date, int debut, int nbParPage, SortDirection ordre);
 

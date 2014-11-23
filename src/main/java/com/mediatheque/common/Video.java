@@ -6,21 +6,25 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 @Entity
 @DiscriminatorValue("Video")
 public class Video extends Media implements Serializable {
 
+    private int limiteAge;
+    @Enumerated(EnumType.STRING)
+    private GenreVideo genreVideo;
+
     public Video() {
     }
 
-    public Video(String titre, String auteur, String resume, Byte[] pochette, int anneeParution) {
+    public Video(int limiteAge, GenreVideo genreVideo, String titre, String auteur, String resume, Byte[] pochette, int anneeParution) {
         super(titre, auteur, resume, pochette, anneeParution);
+        this.limiteAge = limiteAge;
+        this.genreVideo = genreVideo;
     }
-
-    @Enumerated(EnumType.STRING)
-    private GenreVideo genreVideo;
-    private int limiteAge;
 
     public GenreVideo getGenreVideo() {
         return genreVideo;

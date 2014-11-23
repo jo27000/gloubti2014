@@ -6,7 +6,9 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 @Entity
 @DiscriminatorValue("Musique")
 public class Musique extends Media implements Serializable {
@@ -17,8 +19,9 @@ public class Musique extends Media implements Serializable {
     public Musique() {
     }
 
-    public Musique(String titre, String auteur, String resume, Byte[] pochette, int anneeParution) {
+    public Musique(GenreMusique genreMusique, String titre, String auteur, String resume, Byte[] pochette, int anneeParution) {
         super(titre, auteur, resume, pochette, anneeParution);
+        this.genreMusique = genreMusique;
     }
 
     public GenreMusique getGenreMusique() {

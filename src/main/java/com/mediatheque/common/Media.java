@@ -17,20 +17,18 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Lob;
+import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author saturne
- */
+@XmlRootElement
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "discriminator", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorColumn(name = "DISCRIMINATOR", discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue("Media")
 public class Media implements Serializable {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
     private String titre;
     private String auteur;
     private String resume;
@@ -42,10 +40,6 @@ public class Media implements Serializable {
     public Media() {
     }
 
-    public long getId() {
-        return id;
-    }
-
     public Media(String titre, String auteur, String resume, Byte[] pochette, int anneeParution) {
         this.titre = titre;
         this.auteur = auteur;
@@ -54,7 +48,11 @@ public class Media implements Serializable {
         this.anneeParution = anneeParution;
     }
 
-    public void setId(long id) {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -124,7 +122,7 @@ public class Media implements Serializable {
             return false;
         }
         final Media other = (Media) obj;
-        if (this.id != other.id) {
+        if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         if (!Objects.equals(this.titre, other.titre)) {
@@ -136,7 +134,7 @@ public class Media implements Serializable {
         if (!Objects.equals(this.resume, other.resume)) {
             return false;
         }
-        if (!Objects.equals(this.pochette, other.pochette)) {
+        if (!Arrays.deepEquals(this.pochette, other.pochette)) {
             return false;
         }
         if (this.anneeParution != other.anneeParution) {
@@ -144,5 +142,4 @@ public class Media implements Serializable {
         }
         return true;
     }
-
 }

@@ -13,21 +13,11 @@ import java.util.List;
  */
 public interface MediaService {
 
-    public Media add(Media media);
+    public int add(Media media);
 
     public int remove(Media media);
 
     public int update(Media media);
-
-    public Media getById(long id);
-
-    public List<Media> getByTitre(String titre, int debut, int nbParPage, SortDirection ordre);
-
-    public List<Media> getByAuteur(String auteur, int debut, int nbParPage, SortDirection ordre);
-
-    public List<Media> getByAnneeParution(int anneeParution, int debut, int nbParPage, SortDirection ordre);
-
-    public List<Media> getByMotCle(String motCle);
 
     public List<Media> getAll(int debut, int nbParPage, SortDirection ordre);
 
@@ -36,6 +26,16 @@ public interface MediaService {
     public List<Video> getAllVideo(int debut, int nbParPage, SortDirection ordre);
 
     public List<Musique> getAllMusique(int debut, int nbParPage, SortDirection ordre);
+
+    public Media getById(Long id);
+
+    public List<Media> getByTitre(String titre, int debut, int nbParPage, SortDirection ordre);
+
+    public List<Media> getByAuteur(String auteur, int debut, int nbParPage, SortDirection ordre);
+
+    public List<Media> getByAnneeParution(int anneeParution, int debut, int nbParPage, SortDirection ordre);
+
+    public List<Media> getByMotCle(String motCle, int debut, int nbParPage, SortDirection ordre);
 
     public List<Livre> getByEditeur(String editeur, int debut, int nbParPage, SortDirection ordre);
 

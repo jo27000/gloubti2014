@@ -6,7 +6,9 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 @Entity
 @DiscriminatorValue("Livre")
 public class Livre extends Media implements Serializable {
@@ -18,8 +20,10 @@ public class Livre extends Media implements Serializable {
     public Livre() {
     }
 
-    public Livre(String titre, String auteur, String resume, Byte[] pochette, int anneeParution) {
+    public Livre(String editeur, GenreLivre genreLivre, String titre, String auteur, String resume, Byte[] pochette, int anneeParution) {
         super(titre, auteur, resume, pochette, anneeParution);
+        this.editeur = editeur;
+        this.genreLivre = genreLivre;
     }
 
     public String getEditeur() {

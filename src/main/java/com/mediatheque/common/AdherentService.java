@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface AdherentService {
 
-    public Adherent add(Adherent adherent);
+    public int add(Adherent adherent);
 
     public int remove(Adherent adherent);
 
@@ -22,17 +22,19 @@ public interface AdherentService {
 
     public List<Adherent> getAll(int debut, int nbParPage, SortDirection ordre);
 
-    public Adherent getAdherentById(long id);
+    public Adherent getById(Long id);
 
-    public List<Adherent> getAdherentByNom(String nom, int debut, int nbParPage, SortDirection ordre);
+    public List<Adherent> getByNom(String nom, int debut, int nbParPage, SortDirection ordre);
 
-    public List<Adherent> getAdherentByPrenom(String prenom, int debut, int nbParPage, SortDirection ordre);
+    public List<Adherent> getByPrenom(String prenom, int debut, int nbParPage, SortDirection ordre);
 
-    public Adherent getAdherentByMail(String mail);
+    public Adherent getByLogin(String login, String password);
 
-    public Adherent getAdherentByTel(String tel);
+    public Adherent getByMail(String mail);
 
-    public List<Adherent> getAdherentByDateNaissance(Date dateNaissance, int debut, int nbParPage, SortDirection ordre);
+    public Adherent getByTel(String tel);
+
+    public List<Adherent> getByDateNaissance(Date dateNaissance, int debut, int nbParPage, SortDirection ordre);
 
     public int getCount();
 
